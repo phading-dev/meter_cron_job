@@ -18,6 +18,7 @@
     "**/*.json"
   ],
   "devDependencies": {
+    "@selfage/bundler_cli": "^5.3.0",
     "@selfage/cli": "^5.0.3",
     "@selfage/test_matcher": "^2.1.10",
     "@selfage/test_runner": "^5.0.1",
@@ -26,8 +27,8 @@
     "typescript": "^5.6.2"
   },
   "dependencies": {
-    "@phading/cluster": "^1.0.0",
-    "@phading/product_meter_service_interface": "^1.0.1",
-    "@selfage/node_service_client": "^2.2.0"
+    "@phading/cluster": "^1.0.4",
+    "@phading/meter_service_interface": "^1.0.0",
+    "@selfage/node_service_client": "^2.2.2"
   }
 }

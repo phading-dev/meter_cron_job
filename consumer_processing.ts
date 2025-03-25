@@ -4,7 +4,7 @@ import {
   newGetMonthlyBatchRequest,
   newProcessDailyMeterReadingRequest,
   newProcessMonthlyMeterReadingRequest,
-} from "@phading/product_meter_service_interface/show/node/consumer/client";
+} from "@phading/meter_service_interface/show/node/consumer/client";
 
 export async function processConsumers(): Promise<void> {
   let cursor: string;

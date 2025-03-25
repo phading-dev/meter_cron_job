@@ -6,7 +6,7 @@ import {
   newProcessDailyStorageReadingRequest,
   newProcessDailyWatchReadingRequest,
   newProcessMonthlyMeterReadingRequest,
-} from "@phading/product_meter_service_interface/show/node/publisher/client";
+} from "@phading/meter_service_interface/show/node/publisher/client";
 
 export async function processPublishers(): Promise<void> {
   let cursor: string;

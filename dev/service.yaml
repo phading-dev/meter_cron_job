@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: meter-cron-job
+spec:
+  schedule: "0 3,10,18 * * *"
+  timezone: "Pacific/Pitcairn"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: meter-cron-job
+            image: gcr.io/phading-dev/meter-cron-job:latest
+            imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure
