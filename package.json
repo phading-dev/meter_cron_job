@@ -1,17 +1,17 @@
 {
-  "name": "@phading/product_meter_service",
+  "name": "@phading/meter_cron_job",
   "version": "0.1.0",
-  "description": "ProductMeterService.",
+  "description": "Cronjob for MeterService.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phading-dev/product_meter_service.git"
+    "url": "git+https://github.com/phading-dev/meter_cron_job.git"
   },
   "author": "Yuxuan Xie <ykuyo.dev@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/phading-dev/product_meter_service/issues"
+    "url": "https://github.com/phading-dev/meter_cron_job/issues"
   },
-  "homepage": "https://github.com/phading-dev/product_meter_service#readme",
+  "homepage": "https://github.com/phading-dev/meter_cron_job#readme",
   "files": [
     "**/*.d.ts",
     "**/*.js",
