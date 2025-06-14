@@ -13,6 +13,9 @@ gcloud iam service-accounts create ${ENV_VARS.builderAccount}
 # Grant permissions to the service account
 gcloud projects add-iam-policy-binding ${ENV_VARS.projectId} --member="serviceAccount:${ENV_VARS.builderAccount}@${ENV_VARS.projectId}.iam.gserviceaccount.com" --role='roles/cloudbuild.builds.builder' --condition=None
 gcloud projects add-iam-policy-binding ${ENV_VARS.projectId} --member="serviceAccount:${ENV_VARS.builderAccount}@${ENV_VARS.projectId}.iam.gserviceaccount.com" --role='roles/container.developer' --condition=None
+
+# Create the service account
+kubectl create serviceaccount ${ENV_VARS.serviceAccount} --namespace default
 `;
   writeFileSync(`${env}/turnup.sh`, turnupTemplate);
 
@@ -55,15 +58,24 @@ metadata:
   name: ${ENV_VARS.releaseServiceName}
 spec:
   schedule: "0 3,10,18 * * *"
-  timezone: "${ENV_VARS.timezoneIdentifier}"
+  concurrencyPolicy: Forbid
+  timeZone: "${ENV_VARS.timezoneIdentifier}"
   jobTemplate:
     spec:
       template:
         spec:
+          serviceAccountName: ${ENV_VARS.serviceAccount}
           containers:
           - name: ${ENV_VARS.releaseServiceName}
             image: gcr.io/phading-dev/${ENV_VARS.releaseServiceName}:latest
             imagePullPolicy: IfNotPresent
+            resources:
+              requests:
+                cpu: "${ENV_VARS.cpu}"
+                memory: "${ENV_VARS.memory}"
+              limits:
+                cpu: "${ENV_VARS.cpu}"
+                memory: "${ENV_VARS.memory}"
           restartPolicy: OnFailure
 `;
   writeFileSync(`${env}/service.yaml`, serviceTemplate);
