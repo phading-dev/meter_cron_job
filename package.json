@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@phading/cluster": "^1.0.7",
-    "@phading/meter_service_interface": "^1.0.0",
-    "@selfage/node_service_client": "^2.2.2"
+    "@phading/meter_service_interface": "^1.0.1",
+    "@selfage/node_service_client": "^2.2.3"
   }
 }
