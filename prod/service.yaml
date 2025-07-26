@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: meter-cron-job
+spec:
+  schedule: "0 3,10,18 * * *"
+  concurrencyPolicy: Forbid
+  timeZone: "Pacific/Pitcairn"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: meter-cron-account
+          containers:
+          - name: meter-cron-job
+            image: gcr.io/phading-prod/meter-cron-job:latest
+            imagePullPolicy: IfNotPresent
+            resources:
+              requests:
+                cpu: "200m"
+                memory: "256Mi"
+              limits:
+                cpu: "200m"
+                memory: "256Mi"
+          restartPolicy: OnFailure

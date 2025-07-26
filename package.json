@@ -27,7 +27,7 @@
     "typescript": "^5.6.2"
   },
   "dependencies": {
-    "@phading/cluster": "^1.0.8",
+    "@phading/cluster": "^1.0.14",
     "@phading/meter_service_interface": "^1.0.1",
     "@selfage/node_service_client": "^2.2.3"
   }
